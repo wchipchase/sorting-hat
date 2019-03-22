@@ -12,13 +12,13 @@ let students = [
 
 ]
 
-// function showHideForm(){
-//     if(startButton.click === true){
-//         form.style.display = 'block';
-//     } else {
-//         form.style.display = 'none';
-//     }
-// }
+function showHideForm(){
+    if(form.style.display === "none"){
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+}
 
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
