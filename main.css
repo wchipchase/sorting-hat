@@ -5,3 +5,9 @@ body {
 .hide {
     display: none;
 }
+
+.form-inline {
+    background-color: white;
+    height: 200px;
+    width: 200px;
+}
