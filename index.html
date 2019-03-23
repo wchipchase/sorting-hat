@@ -14,10 +14,10 @@
         <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam quos commodi ipsum est, dolor consequuntur soluta autem nostrum iusto? Officia tempora dignissimos suscipit maxime quas iste eveniet voluptates sapiente cumque Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore deleniti laboriosam minima vitae repellendus exercitationem similique quisquam, ea soluta a mollitia expedita iusto officiis voluptas illum earum atque? Vel, officia. .</p>
         <hr class="my-4">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis voluptatem excepturi soluta, doloremque, numquam magni odit facere, recusandae temporibus nemo ipsum dicta dolores. Sint natus architecto laboriosam labore at odit.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button" id="startSort" onclick="showHideForm()">Let's start sorting!</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="startSort" >Let's start sorting!</a>
 
     </div>
-        <fieldset id="studentInfo">
+        <fieldset id="studentInfo" class = "hide">
             <form class="form-inline">
                 <div class="form-group">
                 <label for="exampleInputName2">Student</label>
@@ -28,12 +28,15 @@
             </form>
         </fieldset>
 
-        <div id="container">
-            <div class = "card-group" id="card-group">
 
-            </div>
+        <div class = "card-group" id="card-group">
+            <div class='row'>
+                <div class="col-sm-4" id="cardColumn">
+                </div>  
 
         </div>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

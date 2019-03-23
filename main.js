@@ -3,34 +3,67 @@ let sortButton = document.getElementById('sortStudent');
 let inputName = document.getElementById('inputName');
 let form = document.getElementById('studentInfo');
 
-let students = [
-    {name: 'Bob Barker'},
-    {name: 'Pat Sajak'},
-    {name: 'Kevin Costner'},
-    {name: 'Eric Cartman'},
-    {name: 'Mike Fox'}
+//Student Array
+let students = [];
 
-]
-
+startButton.addEventListener("click", showHideForm);
+// Show or Hide the form
 function showHideForm(){
-    if(form.style.display === "none"){
-        form.style.display = 'block';
+    if(form.className === "hide"){
+        form.classList.remove("hide");
     } else {
-        form.style.display = 'none';
+        form.classList.add("hide");
     }
 }
 
+// Add student to array
+function getStudent() {
+    let studentName = inputName.value;
+    students.push({name: studentName});
+    domStringBuilder(students);
+
+}
+
+sortButton.addEventListener('click', getStudent)
+
+
+//remove last added student from the array
+function expelStudent() {
+    let studentName = inputName.value;
+    students.pop(studentName);
+
+}
+
+// Create random function to select student's house
+function randomizer() {
+    let studentHouse = "";
+    hatResults = Math.floor(Math.random() * 3);
+    if(hatResults === 0){
+        studentHouse = 'Gryffindor';
+    } else if(hatResults === 1) {
+        studentHouse = 'Hufflepuff';
+    } else if (hatResults === 2) {
+        studentHouse = 'Ravenclaw';
+    } else {
+        studentHouse = 'Slytherin';
+    }
+
+}
+
+// Print to dom
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 }
 
+// Build domStringBuilder
 const domStringBuilder = (students) => {
     let domString = "";
     for(let i = 0; i < students.length; i++) {
         
-        domString += `<div class="col-sm-4">`;
-        domString +=    `<div class="card">`
+        
+        domString += `<div class="card">`
+        // domString += `<div class="col-sm-4">`
         domString +=            `<div class="title"><h3>${students[i].name}</h3></div>`;
         domString +=            `<div class="expel-button"><button id = "expel">Expel</button>`;
         domString += `</div>`;
@@ -41,4 +74,9 @@ const domStringBuilder = (students) => {
     printToDom("card-group", domString);
 }
 
+const init = () => {
+    domStringBuilder(students);
+}
+
+init();
 // startButton.addEventListener('click', showHideForm);
