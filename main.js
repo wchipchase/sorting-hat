@@ -19,7 +19,9 @@ function showHideForm(){
 // Add student to array
 function getStudent() {
     let studentName = inputName.value;
-    students.push({name: studentName});
+    let newStudent = {name: studentName, house:randomizer()};
+    students.push(newStudent );
+
     domStringBuilder(students);
 
 }
@@ -47,7 +49,7 @@ function randomizer() {
     } else {
         studentHouse = 'Slytherin';
     }
-
+    return studentHouse;
 }
 
 // Print to dom
@@ -65,6 +67,7 @@ const domStringBuilder = (students) => {
         domString += `<div class="card">`
         // domString += `<div class="col-sm-4">`
         domString +=            `<div class="title"><h3>${students[i].name}</h3></div>`;
+        domString +=            `<div class="title"><h3>${students[i].house}</h3></div>`;
         domString +=            `<div class="expel-button"><button id = "expel">Expel</button>`;
         domString += `</div>`;
         domString += `</div>`;
