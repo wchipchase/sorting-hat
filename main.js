@@ -19,10 +19,12 @@ function showHideForm(){
 // Add student to array
 function getStudent() {
     let studentName = inputName.value;
-    let newStudent = {name: studentName, house:randomizer()};
+    let newStudent = {name: studentName, house:randomizer(), studentId: `student${students.length +1}`};
+    
     students.push(newStudent );
 
     domStringBuilder(students);
+
 
 }
 
@@ -35,6 +37,8 @@ function expelStudent() {
     students.pop(studentName);
 
 }
+
+
 
 // Create random function to select student's house
 function randomizer() {
@@ -68,13 +72,34 @@ const domStringBuilder = (students) => {
         // domString += `<div class="col-sm-4">`
         domString +=            `<div class="title"><h3>${students[i].name}</h3></div>`;
         domString +=            `<div class="title"><h3>${students[i].house}</h3></div>`;
-        domString +=            `<div class="expel-button"><button id = "expel">Expel</button>`;
+        domString +=            `<button class="expel-button" id=${students[i].studentId}>Expel</button>`;
         domString += `</div>`;
         domString += `</div>`;
 
     
     }
     printToDom("card-group", domString);
+    let expel = document.getElementsByClassName('expel-button');
+    console.log(expel);
+    for (let i = 0; i < expel.length; i++) {
+        expel[i].addEventListener('click', expelBtnEvent)
+
+    }
+    
+}
+
+function expelBtnEvent(e) {
+    console.log(e.target.id)
+    const studentToDelete = e.target.id;
+   // what index in students is studentToDelete
+    for(let j=0; j < students.length; j++){
+        if(students[j].studentId === studentToDelete){
+            // use splice - index, how many to delete
+            students.splice(j, 1);
+        }
+    }
+    
+    domStringBuilder(students);
 }
 
 const init = () => {
@@ -82,4 +107,3 @@ const init = () => {
 }
 
 init();
-// startButton.addEventListener('click', showHideForm);
