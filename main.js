@@ -43,15 +43,17 @@ function expelStudent() {
 // Create random function to select student's house
 function randomizer() {
     let studentHouse = "";
-    hatResults = Math.floor(Math.random() * 3);
+    hatResults = Math.floor(Math.random() * 4);
     if(hatResults === 0){
         studentHouse = 'Gryffindor';
     } else if(hatResults === 1) {
         studentHouse = 'Hufflepuff';
     } else if (hatResults === 2) {
         studentHouse = 'Ravenclaw';
-    } else {
+    } else if (hatResults === 3) {
         studentHouse = 'Slytherin';
+    } else {
+        alert("You're not a wizard harry");
     }
     return studentHouse;
 }
@@ -67,20 +69,19 @@ const domStringBuilder = (students) => {
     let domString = "";
     for(let i = 0; i < students.length; i++) {
         
-        
-        domString += `<div class="card">`
-        // domString += `<div class="col-sm-4">`
+        domString += `<div class="col-sm-4">`
+        domString += `<div class="card" id='card'>`   
         domString +=            `<div class="title"><h3>${students[i].name}</h3></div>`;
         domString +=            `<div class="title"><h3>${students[i].house}</h3></div>`;
-        domString +=            `<button class="expel-button" id=${students[i].studentId}>Expel</button>`;
+        domString +=            `<button class="expel-button" id=${students[i].studentId}>Expel</button>`
         domString += `</div>`;
         domString += `</div>`;
+    
 
     
     }
     printToDom("card-group", domString);
     let expel = document.getElementsByClassName('expel-button');
-    console.log(expel);
     for (let i = 0; i < expel.length; i++) {
         expel[i].addEventListener('click', expelBtnEvent)
 
@@ -89,13 +90,12 @@ const domStringBuilder = (students) => {
 }
 
 function expelBtnEvent(e) {
-    console.log(e.target.id)
     const studentToDelete = e.target.id;
    // what index in students is studentToDelete
     for(let j=0; j < students.length; j++){
         if(students[j].studentId === studentToDelete){
             // use splice - index, how many to delete
-            students.splice(j, 1);
+            students.splice(j, 1)
         }
     }
     

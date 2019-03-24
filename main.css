@@ -2,12 +2,31 @@ body {
     background-color: gray;
 }
 
+#container {
+    width:60%;
+    /* display: flex;
+    flex-direction: row;
+    flex-flow: wrap; */
+}
+
 .hide {
     display: none;
 }
 
 .form-inline {
     background-color: white;
+    width: 30%;
     height: 200px;
-    width: 200px;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card {
+    margin-block-end: 1rem;
+}
+
+#studentInfo {
+    border-radius: .75rem;
 }
