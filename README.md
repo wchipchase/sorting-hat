@@ -1,5 +1,5 @@
 # Sorting Hat
-A personal website to extoll my virtues to future employers
+A sorting hat application to put students into houses
 
 ## Description
 This demonstrates bootstrap 4 and some javascript stuff
