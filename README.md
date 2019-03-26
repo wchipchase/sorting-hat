@@ -17,4 +17,3 @@ $ npm install -g http-server
 Browse to sorting-hat directory and run http server
 
 ![sorting-hat](https://raw.githubusercontent.com/wchipchase/sorting-hat/master/screenshots/sorting-hat.JPG "Sorting Hat")
-
