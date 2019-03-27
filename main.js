@@ -70,7 +70,7 @@ const domStringBuilder = (students) => {
     for(let i = 0; i < students.length; i++) {
         
         domString += `<div class="col-sm-4">`
-        domString += `<div class="card" id='card'>`   
+        domString += `<div class="card ${students[i].house}" id='card'>`   
         domString +=            `<div class="title"><h3>${students[i].name}</h3></div>`;
         domString +=            `<div class="title"><h3>${students[i].house}</h3></div>`;
         domString +=            `<button class="expel-button" id=${students[i].studentId}>Expel</button>`
